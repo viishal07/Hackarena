@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CROP-ERA</title>
+    <link rel="stylesheet" href="css/3.css">
+</head>
+<body>
+    <div id="weather-container">
+        <h1>CROP-ERA</h1>
+        <img src="assets/official-logo1.png" alt="weather-icon" class="logo" style="position: absolute; ">
+        <input type="text" id="city" placeholder="Enter city">
+        <button onclick="getweather()" id="getWeatherbutton">Search</button> 
+        <div id="temp-div"></div>
+        <div id="weather-info"></div>
+        <div id="hourly-forecast"></div>
+        <h3>Agricultural Recommendations:</h3>
+        <div id="agricultural-recommendations">
+          
+            <div id="water-level">
+               
+                <% if (agriculture && agriculture.waterLevel) { %>
+                    <p><%= agriculture.waterLevel %></p>
+                <% }%>
+            </div>
+            <div id="pesticides">
+               
+                <% if (agriculture && agriculture.pesticides) { %>
+                    <p><%= agriculture.pesticides %></p>
+                <% }%>
+            </div>
+            <div id="fertilizers">
+                
+                <% if (agriculture && agriculture.fertilizers) { %>
+                    <p><%= agriculture.fertilizers %></p>
+                <% }%>
+            </div>
+        </div>
+    </div>
+    <script src="/js/3.js"></script>
+</body>
+</html>              

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Page</title>
+  <link rel="stylesheet" href="css/2.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"/>
+</head>
+
+<body>
+  
+  <div class="video-container">
+    <video autoplay loop muted playsinline>
+      <source src="assets/CROP-ERA BACKGROUND-VIDEO.mp4">
+    </video>
+    
+  </div>
+  <div class="navbar">
+    <div class="logo-container">
+      <img src="assets/official-logo1.png" alt="crop-era_logo">
+    </div>
+      
+    <div class="hamburger" onclick="toggleMenu()">
+      <i class="fa fa-bars"></i>
+    </div>
+
+    <div class="nav-links">
+      <div class="nav-box">
+        <i class="fa-solid fa-cloud"></i>
+        <li><a href="/3" id="weather">Weather</a></li>
+      </div>
+      <div class="nav-box">
+        <i class="fa-solid fa-tractor"></i>
+        <li><a href="/4" id="newTechnologies">New Technologies</a></li>
+      </div>
+      <div class="nav-box">
+        <i class="fa-solid fa-disease"></i>
+        <li><a href="/5" id="diseases">Diseases</a></li>
+      </div>
+      <div class="nav-box">
+        <i class="fa-solid fa-circle-info"></i>
+        <li><a href="/6" id="about">About</a></li>
+      </div>
+    </div>
+    <div class="language-switcher">
+        <select id="languageSwitcher" onchange="switchLanguage()">
+          <option value="en">English</option>
+          <option value="te">Telugu</option>
+          <option value="hi">Hindi</option>
+        </select>
+      </div> 
+  </div>
+  </div>
+  </div>
+  <div class="text-box">
+    Welcome to Crop-Era! Here, you can explore weather conditions, new technologies, and more.
+  </div>
+  <script src="js/2.js"></script>
+   <script>
+    function toggleMenu() {
+      const navLinks = document.querySelector('.nav-links');
+      navLinks.classList.toggle('active');
+    }
+
+    // Function to switch language dynamically
+    function switchLanguage() {
+      const selectedLang = document.getElementById('languageSwitcher').value;
+      setLanguage(selectedLang);
+
+      // Save the selected language to localStorage
+      localStorage.setItem('selectedLanguage', selectedLang);
+    }
+
+    // Apply the saved language or default language
+    const savedLanguage = localStorage.getItem('selectedLanguage') || "english";
+    setLanguage(savedLanguage); // Function from translations.js
+
+  </script>
+
+  <script>
+    // Translations for different languages
+    const translations = {
+      en: { weather: "Weather", newTechnologies: "New Technologies", diseases: "Diseases", about: "About" },
+      te: { weather: "వాతావరణం", newTechnologies: "కొత్త సాంకేతికతలు", diseases: "రోగాలు", about: "గురించి" },
+      hi: { weather: "मौसम", newTechnologies: "नई तकनीक", diseases: "बीमारियाँ", about: "के बारे में" },
+    };
+
+    // Get the selected language from the query parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    const selectedLanguage = urlParams.get("lang") || "en"; // Default to English if no language is selected
+
+    // Apply the selected language
+    function applyLanguage(lang) {
+      document.getElementById("weather").textContent = translations[lang].weather;
+      document.getElementById("newTechnologies").textContent = translations[lang].newTechnologies;
+      document.getElementById("diseases").textContent = translations[lang].diseases;
+      document.getElementById("about").textContent = translations[lang].about;
+    }
+    // Apply language on page load
+    applyLanguage(selectedLanguage);
+  </script>
+</body>
+</html>

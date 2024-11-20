@@ -86,7 +86,63 @@ body{
 #logo img{
     width: 50px;
 }
-#menu{
+.navigation{
+    position: relative;
+    width: 400px;
+    height: 70px;
+    background-color: #20ab69;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+}
+.navigation ul{
+    display: flex;
+    width: 350px;
+}
+.navigation ul li{
+    position: relative;
+    list-style: none;
+    width: 70px;
+    height: 70px;
+    z-index: 1;
+}
+.navigation ul li a{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    font-weight: 500;
+}
+.navigation ul li a .icon{
+    position: relative;
+    display: none;
+    line-height: 75px;
+    font-size: 3.5rem;
+    text-align: center;
+    transition: center;
+    color: var(--clr);
+}
+.navigation ul li:hover a .icon{
+    transform: translateY(-35px);
+}
+.navigation ul li a .text{
+    position: relative;
+    color: var(--clr);
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    transition: 0.5s;
+    opacity: 0;
+    transform: translateY(-20px);
+}
+.navigation ul li:hover a .text{
+    opacity: 1;
+    transform: translateY(-10px);
+}
+/* #menu{
     font-family: 'Behnschrift Condensed';
     font-size: 14px;
     color: white;
@@ -94,14 +150,14 @@ body{
     margin-right: 150px;
     margin-top: 20px;
     float: right;
-}
-#menu ul{
+} */
+/* #menu ul{
     list-style: none;
-}
-#menu ul li{
+} */
+/* #menu ul li{
     display: inline-block;
     margin-left: 100px;
-}
+} */
 @keyframes anim4{
     from{
         top: 100%;
